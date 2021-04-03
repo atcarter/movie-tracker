@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end
 
-    def logged_in?
+    def is_logged_in?
       #double !! to evaluate the above helper method as a boolean
       !!current_user
     end
