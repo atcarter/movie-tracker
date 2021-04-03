@@ -11,7 +11,19 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :home
+  end
+
+  helper do 
+    def current_user
+      # a ||= b, assigns b to a if a is falsey aka a = b unless a
+      @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
+    end
+
+    def logged_in?
+      #double !! to evaluate the above helper method as a boolean
+      !!current_user
+    end
   end
 
 end
