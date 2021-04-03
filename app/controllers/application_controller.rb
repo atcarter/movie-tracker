@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
-  helper do 
+  helpers do 
     def current_user
       # a ||= b, assigns b to a if a is falsey aka a = b unless a
       @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
