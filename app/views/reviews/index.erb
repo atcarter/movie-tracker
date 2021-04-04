@@ -2,7 +2,7 @@
 <h2>Click on a title below to go to an individual review's page.</h2>
 
 <%@reviews.each do |rev|%>
-  <a href="/articles/<%=rev.id%>"><h3><%= rev.title%> (<%=rev.year%>)</h3></a>
+  <a href="/reviews/<%=rev.id%>"><h3><%= rev.title%> (<%=rev.year%>)</h3></a>
   <h4><%= rev.user.username%> &emsp; &emsp; <%="*" * rev.rating%></h4>
   <p><%= rev.content%></p>
 <%end%>

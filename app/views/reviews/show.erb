@@ -1,0 +1,16 @@
+<a href="/reviews"><h1>Return to All Reviews</h1></a>
+<h2>An individual review is shown below.</h2>
+
+
+<a href="/reviews/<%=@review.id%>"><h3><%= @review.title%> (<%=@review.year%>)</h3></a>
+<h4><%= @review.user.username%> &emsp; &emsp; <%="*" * @review.rating%></h4>
+<p><%= @review.content%></p>
+
+<%if current_user == @review.user%>
+  <a href="/reviews/<%=@review.id%>/edit">Edit review</a>
+  <br><br>
+  <form method="POST" action="/reviews/<%=@review.id%>/delete">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete This Review">
+  </form>
+<%end%>
