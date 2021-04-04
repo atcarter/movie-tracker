@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   get '/reviews' do
-    if current_user
+    if is_logged_in?
       @reviews = Review.all
       erb :'/reviews/index'
     else
@@ -10,13 +10,21 @@ class ReviewsController < ApplicationController
   end
 
   get '/reviews/new' do
-    @current_year = Time.now.year
-    erb :'/reviews/new'
+    if is_logged_in?
+      @current_year = Time.now.year
+      erb :'/reviews/new'
+    else
+      redirect "/"
+    end
   end
 
   get '/reviews/:id' do
-    @review = Review.find_by_id(params[:id])
-    erb :'/reviews/show'
+    if is_logged_in?
+      @review = Review.find_by_id(params[:id])
+      erb :'/reviews/show'
+    else
+      redirect "/"
+    end
   end
 
   post '/reviews' do
@@ -33,12 +41,16 @@ class ReviewsController < ApplicationController
   end
 
   get "/reviews/:id/edit" do
-    @review = Review.find_by_id(params[:id])
-    @current_year = Time.now.year
-    if @review
-      erb :'/reviews/edit'
+    if is_logged_in?
+      @review = Review.find_by_id(params[:id])
+      @current_year = Time.now.year
+      if @review
+        erb :'/reviews/edit'
+      else
+        redirect "/reviews/:id"
+      end
     else
-      redirect "/reviews/:id"
+      redirect "/"
     end
   end
 
