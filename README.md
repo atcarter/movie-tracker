@@ -5,13 +5,11 @@ This repository allows anyone to download a movie tracker web application that a
 
 ## Installation
 
-This is a work in progress. Clone this respository to your own machine. Run 'bundle install' and run all of your migrations. Once this is complete, run shotgun and go to the "/" route to sign up and start adding your own movie reviews!
-```
-    $ ruby bin/movie_cli
-```
+Clone this respository to your own machine. Run 'bundle install' to ensure all gems are present. Once this is complete, run 'shotgun' and go to the "/" route to sign up and start adding your own movie reviews!
+
 ## Contributor's Guide
 
-Feel free to help expand the functionality of this application. Eventually, I would like to add the API from my movie_cli app to have extra information associated with a given movie.
+Feel free to help expand the functionality of this application. Eventually, I would like to add the API that I used for my movie_cli app to have extra information associated with a given movie.
 
 ## License
 
