@@ -4,6 +4,8 @@ class ReviewsController < ApplicationController
     if current_user
       @reviews = Review.all
       erb :'/reviews/index'
+    else
+      redirect "/"
     end
   end
 

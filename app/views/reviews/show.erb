@@ -1,8 +1,8 @@
 <a href="/reviews"><h1>Return to All Reviews</h1></a>
-<h2>An individual review is shown below.</h2>
+<h2>An individual review is shown below. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<a href="/logout">Log Out</a></h2> 
 
 
-<a href="/reviews/<%=@review.id%>"><h3><%= @review.title%> (<%=@review.year%>)</h3></a>
+<h3><%= @review.title%> (<%=@review.year%>)</h3>
 <h4><%= @review.user.username%> &emsp; &emsp; <%="*" * @review.rating%></h4>
 <p><%= @review.content%></p>
 
