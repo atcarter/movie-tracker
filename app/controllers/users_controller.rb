@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     erb :'/users/signup'
   end
 
-  #utilize bcrypt in new statement
+  #utilize bcrypt statement
   post '/signup' do
     @user = User.new(email: params[:email], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
