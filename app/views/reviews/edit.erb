@@ -1,0 +1,23 @@
+<a href="/reviews"><h1>Return to All Reviews</h1></a>
+<h2>Edit a movie review below. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<a href="/logout">Log Out</a></h2> 
+
+
+<form method="POST" action="/reviews/<%=@review.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+
+  <label for="title">Title: </label>
+  <input type="text" name="title" id="title" value="<%=@review.title%>" required><br><br>
+
+  <label for="year">Year: </label>
+  <input type="number" name="year" id="year" value="<%=@review.year%>" min="1900" max="<%=@current_year%>" required><br><br>
+
+  <label for="rating">Rating (1-5): </label>
+  <input type="number" name="rating" id="rating" value="<%=@review.rating%>" min="1" max="5" required><br><br>
+
+  <label for=content>Content: </label>
+  <input type="text" name="content" id="content" value="<%=@review.content%>" required><br><br>
+
+  <input type="submit" name="submit" value="Save all changes!"><br><br>
+
+</form>
+

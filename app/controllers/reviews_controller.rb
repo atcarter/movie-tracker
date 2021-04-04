@@ -10,13 +10,12 @@ class ReviewsController < ApplicationController
   end
 
   get '/reviews/new' do
-    @t = Time.now
+    @current_year = Time.now.year
     erb :'/reviews/new'
   end
 
   get '/reviews/:id' do
-    id = params[:id].to_i
-    @review = Review.find_by_id(id)
+    @review = Review.find_by_id(params[:id])
     erb :'/reviews/show'
   end
 
@@ -33,6 +32,31 @@ class ReviewsController < ApplicationController
     end
   end
 
+  get "/reviews/:id/edit" do
+    @review = Review.find_by_id(params[:id])
+    @current_year = Time.now.year
+    if @review
+      erb :'/reviews/edit'
+    else
+      redirect "/reviews/:id"
+    end
+  end
 
-  
+  patch "/reviews/:id" do
+    @review = Review.find_by_id(params[:id])
+    if @review && @review.update(title: params[:title], year: params[:year], rating: params[:rating], content: params[:content])
+      redirect "/reviews/#{@review.id}"
+    else
+      redirect "/reviews/#{params[:id]}/edit"
+    end
+  end
+
+  delete '/reviews/:id/delete' do
+    @review = Review.find_by_id(params[:id])
+    if @review
+      @review.delete
+    end
+    redirect "/reviews"
+  end
+
 end
