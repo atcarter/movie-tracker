@@ -1,5 +1,10 @@
-<h1>Reviews</h1>
+<h1>Movie Reviews</h1>
 <h2>Click on a title below to go to an individual review's page. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<a href="/logout">Log Out</a></h2> 
+
+<br>
+<a href="/reviews/new">Create a new review here!</a>
+<br><br><br>
+
 
 <%@reviews.each do |rev|%>
   <a href="/reviews/<%=rev.id%>"><h3><%= rev.title%> (<%=rev.year%>)</h3></a>

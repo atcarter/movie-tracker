@@ -1,0 +1,21 @@
+<a href="/reviews"><h1>Return to All Reviews</h1></a>
+<h2>Create a new movie review below. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<a href="/logout">Log Out</a></h2> 
+
+
+<form method="POST" action="/reviews">
+  <label for="title">Title: </label>
+  <input type="text" name="title" id="title" required><br><br>
+
+  <label for="year">Year: </label>
+  <input type="number" name="year" id="year" min="1900" max="<%=@t.year%>" required><br><br>
+
+  <label for="rating">Rating (1-5): </label>
+  <input type="number" name="rating" id="rating" min="1" max="5" required><br><br>
+
+  <label for=content>Content: </label>
+  <input type="text" name="content" id="content" required><br><br>
+
+  <input type="submit" name="submit" value="Create a new movie review!"><br><br>
+
+</form>
+
