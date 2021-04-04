@@ -5,7 +5,7 @@ This repository allows anyone to download a movie tracker web application that a
 
 ## Installation
 
-Clone this respository to your own machine. Run 'bundle install' to ensure all gems are present. Once this is complete, run 'shotgun' and go to the "/" route to sign up and start adding your own movie reviews!
+This web app will be locally hosted on your machine. First, clone this repository. Then, run 'bundle install' to ensure all gems are present. Once this is complete, run 'shotgun', go to the "/" route, sign up and you will be able to start adding your own movie reviews!
 
 ## Contributor's Guide
 
