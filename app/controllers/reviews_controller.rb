@@ -22,11 +22,17 @@ class ReviewsController < ApplicationController
 
   post '/reviews' do
     if is_logged_in?
-      @review = Review.create(title: params[:title], year: params[:year], rating: params[:rating], content: params[:content], user: current_user)
-      redirect "/reviews/#{@review.id}"
+      @review = Review.new(title: params[:title], year: params[:year], rating: params[:rating], content: params[:content], user: current_user)
+      if @review.save
+        redirect "/reviews/#{@review.id}"
+      else
+        redirect "/reviews/new"
+      end
     else
       redirect "/"
     end
   end
+
+
   
 end
