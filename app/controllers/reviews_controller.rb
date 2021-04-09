@@ -49,10 +49,10 @@ class ReviewsController < ApplicationController
     if is_logged_in?
       @review = Review.find_by_id(params[:id])
       @current_year = Time.now.year
-      if @review
+      if @review && @review.user == current_user
         erb :'/reviews/edit'
       else
-        redirect "/reviews/:id"
+        redirect "/reviews/#{@review.id}"
       end
     else
       redirect "/"

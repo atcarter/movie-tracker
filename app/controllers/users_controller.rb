@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  get '/signup' do    
-    erb :'/users/signup'
+  get '/signup' do   
+    if is_logged_in?
+      redirect "/reviews" 
+    else
+      erb :'/users/signup'
+    end
   end
 
   #utilize bcrypt statement
